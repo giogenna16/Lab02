@@ -73,8 +73,12 @@ public class FXMLController {
     			this.txtResult.setText("La parola può contenere soltanto lettere!!!");
     		}
     		else {
-    			if(temp!= null)
-			      this.txtResult.setText("La traduzione della parola inserita è: "+temp);
+    			if(temp!= null) {
+    				
+    				this.txtResult.setText("La traduzione della parola inserita è: "+temp);
+    				
+    			}
+			      
 		        else
 			       this.txtResult.setText("Non esiste una traduzione per questa parola!");
     		}

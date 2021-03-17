@@ -12,25 +12,30 @@ public class AlienDictionary {
 	}
 	
 	public void addWord(String alienWord, String translation) {
-		Word temp= new  Word(alienWord, translation);
-		boolean presente= false;
-		
-		for(Word w: this.dizionario) {
-			if(w.equals(temp)) {
-				dizionario.remove(w);
-				dizionario.add(temp);
+		boolean presente =false;
+		Word temp= null;
+		for(Word w: dizionario)
+			if(w.equals(alienWord)) {
 				presente= true;
-			}
+				temp=w;
+				}
+			
+		if(presente== true) {
+			temp.aggiungiTraduzione(translation);
+			dizionario.add(temp);
 		}
-		
-		if(presente==false)
-			dizionario.add(temp);	
-		
+		if(presente== false) {
+			temp= new Word(alienWord);
+			temp.aggiungiTraduzione(translation);
+			dizionario.add(temp);
 	}
+				
+}	
+	
 	
 	public String translateWord(String alienWord) {
 		for(Word w: this.dizionario) {
-			if(w.getAlienWord().toLowerCase().equals(alienWord.toLowerCase()))
+			if(w.equals(alienWord))
 				return w.getTraslation();
 		}
 		
