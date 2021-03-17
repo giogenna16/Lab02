@@ -6,9 +6,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import model.AlienDictionary;
 
 public class FXMLController {
 
+	AlienDictionary model= new AlienDictionary();
     @FXML
     private ResourceBundle resources;
 
@@ -33,8 +35,13 @@ public class FXMLController {
     }
     
     
+    
     @FXML
     void initialize() {
 
+    }
+    
+    public void setModel(AlienDictionary model) {
+    	this.model= model;
     }
 }
