@@ -30,7 +30,7 @@ public class AlienDictionary {
 	
 	public String translateWord(String alienWord) {
 		for(Word w: this.dizionario) {
-			if(w.getAlienWord().equals(alienWord))
+			if(w.getAlienWord().toLowerCase().equals(alienWord.toLowerCase()))
 				return w.getTraslation();
 		}
 		

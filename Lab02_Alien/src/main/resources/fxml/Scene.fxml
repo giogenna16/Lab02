@@ -49,12 +49,12 @@
                   </Button>
                </children>
             </HBox>
-            <TextArea fx:id="txtResult" prefHeight="200.0" prefWidth="200.0" promptText="Welcome to Alien Dictionary v2021">
+            <TextArea fx:id="txtResult" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Welcome to Alien Dictionary v2021">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </TextArea>
-            <Button fx:id="btnClear" mnemonicParsing="false" onAction="#doReset" text="Clear">
+            <Button fx:id="btnClear" disable="true" mnemonicParsing="false" onAction="#doReset" text="Clear">
                <VBox.margin>
                   <Insets bottom="10.0" left="420.0" top="10.0" />
                </VBox.margin>

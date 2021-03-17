@@ -40,8 +40,8 @@ public class Word {
 
 
 	public boolean equals(Object obj) {
-		Word parola= (Word) obj;
-		return this.alienWord.equals(parola.alienWord);
+		Word parola= (Word)obj;
+		return this.alienWord.toLowerCase().equals(parola.alienWord.toLowerCase());
 	}
 	
 
