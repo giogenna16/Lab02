@@ -62,7 +62,7 @@ public class AlienDictionary {
 			
 			for(Word w: temporanea) {
 				if(w.getAlienWord().length()==alienWord.length()) {
-				    if(w.togliLettera(posizione).equals(temp))
+				    if(w.togliLettera(posizione).toLowerCase().equals(temp.toLowerCase()))
 				    	if(!listaTraduzioni.contains(w.getTraslationWildCard()))
 				    	     listaTraduzioni.add(w.getTraslationWildCard());
 				   

@@ -11,7 +11,7 @@ public class Word {
 	
 	
 	public Word(String alienWord) {
-		this.alienWord = alienWord;
+		this.alienWord = alienWord.toLowerCase();
 		this.listaTraslation= new LinkedList<>();
 		
 		
