@@ -68,21 +68,60 @@ public class FXMLController {
     	}
     	if(parole.length==1) {
     		String aliena= parole[0];
-    		String temp= model.translateWord(aliena);
-    		if (!Pattern.matches("[a-zA-Z]+", aliena)) {
-    			this.txtResult.setText("La parola può contenere soltanto lettere!!!");
+    		if(!aliena.contains("?")) {
+    		   String temp= model.translateWord(aliena);
+    		   if (!Pattern.matches("[a-zA-Z]+", aliena)) {
+    			  this.txtResult.setText("this.txtResult.setText(\"La parola può contenere soltanto lettere\no lettere e un punto interrogativo(wildcard)!!!\");");
+    	    	}
+    	     	else {
+    			
+    			   if(temp!= null) {
+    			 	
+    				  if(temp.contains(","))
+    				    	this.txtResult.setText("Le traduzioni della parola inserita sono: "+temp);
+    				  else
+    				    	this.txtResult.setText("La traduzione della parola inserita è: "+temp);
+    				
+    			    }
+			      
+		          else
+			              this.txtResult.setText("Non esiste una traduzione per questa parola!");
+    		  }
     		}
     		else {
-    			if(temp!= null) {
-    				
-    				this.txtResult.setText("La traduzione della parola inserita è: "+temp);
-    				
+    			if (!Pattern.matches("[a-zA-Z?]+", aliena)) {
+      			  this.txtResult.setText("La parola può contenere soltanto lettere\no lettere e un punto interrogativo(wildcard)!!!");
+      	    	}
+    			else {
+    			int n=0;
+    			for(int i=1; i<aliena.length(); i++) {
+    				if(aliena.substring(i-1, i).equals("?"))
+    					n++;
+    				if(aliena.substring(i).equals("?"))
+    					n++;
     			}
-			      
-		        else
-			       this.txtResult.setText("Non esiste una traduzione per questa parola!");
-    		}
+    			if(n!=1) {
+    				this.txtResult.setText("E' possibile inserire al massimo un punto interrogativo!!!");
+    			}
+    			else {
+    			String r="";
+    			for(String s: model.translateWildCard(aliena)) {
+    				
+    				r+=s;
+ 
+    			}
+    			if(r.equals(""))
+    				this.txtResult.setText("Non esiste una traduzione per questa parola!");
+    			else
+    			 this.txtResult.setText(r);
+    			}
+    			}
+    	  }
     	}
+    	if(parole.length>2) {
+    		 this.txtResult.setText("Non è possibile inserire più di due parole!\nDevi inserire una parola per tradurla o due parole per aggiungere la traduzione!!!");
+    	}
+    	
         }
     	
     	

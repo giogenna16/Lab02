@@ -14,6 +14,7 @@ public class Word {
 		this.alienWord = alienWord;
 		this.listaTraslation= new LinkedList<>();
 		
+		
 	}
 
 	public void aggiungiTraduzione(String traduzione) {
@@ -71,18 +72,50 @@ public class Word {
 		
 		return null;
 	}
-	
-	
-	
-	
-	
-	
-
 
 	public boolean equals(Object obj) {
 	    String aliena= (String) obj;
 		return this.alienWord.toLowerCase().equals(aliena.toLowerCase());
 	}
+	
+	public String togliLettera(int posizione) {
+		 String t="";
+		if(posizione==this.alienWord.length()-1)
+		    t=this.alienWord.substring(posizione);
+		else
+			t=this.alienWord.substring(posizione, posizione+1);
+		
+		 String s=this.alienWord.replace(t,"");
+		 return s;
+		
+	}
+	
+	public String getTraslationWildCard() {
+		String s="";
+		int dim= this.listaTraslation.size();
+		
+		if(dim==1) {
+			s= (String)this.listaTraslation.toArray()[0];
+			return "La traduzione della parola '"+this.alienWord+"' è: "+s+".\n";
+		}
+		if(dim>1) {	
+			
+		   int n=0;
+		   for(String temp: this.listaTraslation) {
+			   n++;
+			   if(n==this.listaTraslation.size())
+			      s+=temp+".";
+			   else
+				   s+=temp+", "; 
+			   
+		   }
+		   
+		   return "Le traduzioni della parola '"+this.alienWord+"' sono: "+s+"\n";
+		}
+		
+		return null;
+	}
+	
 	
 
 }

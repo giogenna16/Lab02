@@ -1,7 +1,9 @@
 package model;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class AlienDictionary {
 
@@ -39,6 +41,39 @@ public class AlienDictionary {
 				return w.getTraslation();
 		}
 		
+		
+		return null;
+		
+	}
+	
+	public List<String> translateWildCard(String alienWord) {
+		if(alienWord.contains("?")) {
+			List<String> listaTraduzioni= new LinkedList<>();
+			List<Word> temporanea= new LinkedList<>(this.dizionario);
+			
+			int posizione=-1;
+			for(int i=1; i<alienWord.length();i++) {
+				if(alienWord.substring(i-1, i).equals("?"))
+					posizione=i-1;
+				if(alienWord.substring(i).equals("?"))
+					posizione=i;
+			}
+			String temp=alienWord.replace("?", "");
+			
+			for(Word w: temporanea) {
+				if(w.getAlienWord().length()==alienWord.length()) {
+				    if(w.togliLettera(posizione).equals(temp))
+				    	if(!listaTraduzioni.contains(w.getTraslationWildCard()))
+				    	     listaTraduzioni.add(w.getTraslationWildCard());
+				   
+				}
+				
+			}
+			
+			return listaTraduzioni;
+			
+			
+		}
 		return null;
 		
 	}

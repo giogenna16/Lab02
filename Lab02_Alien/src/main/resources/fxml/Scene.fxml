@@ -42,7 +42,7 @@
                         <Insets right="20.0" top="5.0" />
                      </padding>
                   </TextField>
-                  <Button fx:id="btnTraduci" mnemonicParsing="false" onAction="#doTranslate" text="Translate">
+                  <Button fx:id="btnTraduci" defaultButton="true" mnemonicParsing="false" onAction="#doTranslate" text="Translate">
                      <HBox.margin>
                         <Insets bottom="10.0" left="35.0" top="10.0" />
                      </HBox.margin>
